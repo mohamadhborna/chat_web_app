@@ -16,9 +16,15 @@ server.listen(port , () =>{
     console.log(`server is running on port ${port}`)
 })
 
-//* socket set up ==> we need event sender and event listener
+//* server listening and socket set up ==> we need event sender and event listener
 io.on('connection' , (socket) =>{
-    console.log('Client connected' + socket.id)
+    console.log('Client connected ' + socket.id)
+
+    //* socket listening
+    socket.on('disconnect' , () =>{
+        console.log('Client disconnected ' + socket.id)
+    })
+
 })
 
 
