@@ -20,11 +20,14 @@ server.listen(port , () =>{
 io.on('connection' , (socket) =>{
     console.log('Client connected ' + socket.id)
 
-    //* socket listening for disconnect event
+    //* socket listening for diffrent events
     socket.on('disconnect' , () =>{
         console.log('Client disconnected ' + socket.id)
     })
-    
+    socket.on('chat_message' , (data) =>{
+        console.log(data)
+        io.sockets.emit('chat_message ' , data)
+    })
 
 })
 

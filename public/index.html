@@ -43,6 +43,7 @@
         </div>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/socket.io.min.js"></script>
+        
         <script>
             const socket = io();
 
@@ -62,6 +63,15 @@
                     messageInput.value = ``
                 }
             })
+            //Event listener
+            socket.on('chat_messsage' , (data) =>{
+                chatBox.innerHTML += `
+                        <li>
+                            <p>
+                            ${data.message}
+                            </p>
+                        </li>`;
+            })    
         </script>
     </body>
 </html>
