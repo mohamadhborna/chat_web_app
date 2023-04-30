@@ -2,6 +2,9 @@ const express = require('express');
 
 const app = express();
 
+//* static folder
+app.use(express.static('public'))
+
 
 const port = process.env.PORT || 4200
 
